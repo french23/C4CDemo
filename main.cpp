@@ -5,20 +5,14 @@
 
 #include <iostream>
 #include <cmath> // For sin() and cos()
-
-// **NOTE:** The actual SDL Plotter library includes are highly specific.
-// Assuming the environment is set up with a master header like "SDL_Plotter.h"
 #include "SDL_Plotter.h"
 
 using namespace std;
 
-// Function to draw a point (wrapper for the SDL Plotter)
-void plot_point(int x, int y, int r, int g, int b, SDL_Plotter& g);
-
 //---------------------------------------------------------
 // Draw a basic circle using trigonometry
 //---------------------------------------------------------
-void draw_circle(SDL_Plotter& g, int centerX, int centerY, int radius, int R, int G, int B) {
+void draw_circle(SDL_Plotter& p, int centerX, int centerY, int radius, int R, int G, int B) {
     for (int angle = 0; angle < 360; angle += 1) {
         // Convert angle to radians
         double rad = angle * M_PI / 180.0;
@@ -27,8 +21,8 @@ void draw_circle(SDL_Plotter& g, int centerX, int centerY, int radius, int R, in
         int x = (int)(centerX + radius * cos(rad));
         int y = (int)(centerY + radius * sin(rad));
 
-        // Plot the point
-        g.plot_point(x, y, R, G, B);
+        // Plot the point using the plotter object 'p'
+        p.plot_point(x, y, R, G, B);
     }
 }
 
@@ -39,5 +33,14 @@ int main(int argc, char** argv) {
     // 2. Draw the starting circle (Red in the center)
     draw_circle(g, 400, 300, 100, 255, 0, 0);
 
-    // 3. Main Loop: Keeps the window open and responsive
-    while (!g.get<ctrl63>
+    // 3. Important: Update the screen so the pixels actually appear!
+    g.update();
+
+    // 4. Main Loop: Keeps the window open and responsive
+    // The loop continues as long as the user has NOT clicked the X button
+    while (!g.get_quit()) {
+        // Just wait
+    }
+    
+    return 0;
+}

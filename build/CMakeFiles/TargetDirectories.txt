@@ -1,0 +1,3 @@
+/workspaces/C4CDemo/build/CMakeFiles/holiday_art.dir
+/workspaces/C4CDemo/build/CMakeFiles/edit_cache.dir
+/workspaces/C4CDemo/build/CMakeFiles/rebuild_cache.dir

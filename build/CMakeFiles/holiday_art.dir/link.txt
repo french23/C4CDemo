@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/holiday_art.dir/main.cpp.o -o holiday_art  -L/usr/lib/x86_64-linux-gnu -lSDL2_image -lSDL2_ttf -lSDL2 
