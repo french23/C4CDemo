@@ -1,0 +1,38 @@
+{
+    // Name of the configuration shown in VS Code/Codespaces
+    "name": "C4C SDL Plotter Competition",
+
+    // Use a standard Debian image configured for C++ development
+    "image": "mcr.microsoft.com/devcontainers/cpp:debian",
+
+    // Customize the container startup to install SDL development libraries
+    "features": {
+        // Feature to install the latest stable version of CMake
+        "ghcr.io/devcontainers/features/cmake:1": {
+            "version": "latest"
+        }
+    },
+
+    // Commands to run after the container is created to install SDL and dependencies
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev",
+
+    // Forward the necessary port for graphical applications (optional, but good practice)
+    "forwardPorts": [5901],
+
+    // Specific settings for the VS Code environment within the container
+    "customizations": {
+        "vscode": {
+            "settings": {
+                // Settings for C++ compiler path (standard g++ installation)
+                "C_Cpp.default.compilerPath": "/usr/bin/g++"
+            },
+            "extensions": [
+                // Essential extensions for C++ development
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools",
+                // Recommended extension for collaborative coding
+                "ms-vsliveshare.vsliveshare"
+            ]
+        }
+    }
+}
