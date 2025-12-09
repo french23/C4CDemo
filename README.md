@@ -7,5 +7,8 @@ chmod +x build_and_run.sh
 ```
 ### Command to build and run program
 ```bash
-./build_and_run.sh
+cd build
+cmake ..
+make
+./holiday_art
 ```
